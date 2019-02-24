@@ -13,9 +13,7 @@ class Driver {
   }
   passengers() {
     // debugger;
-    return store.passengers.filter(
-      passenger => passenger.tripId === this.tripId
-    );
+    return this.trips().map(trip => trip.passenger());
   }
 }
 
@@ -31,8 +29,7 @@ class Passenger {
     return store.trips.filter(trip => trip.passengerId === this.id);
   }
   drivers() {
-    // debugger;
-    return store.drivers.filter(driver => driver.tripId === this.tripId);
+    return this.trips().map(trip => trip.driver());
   }
 }
 
